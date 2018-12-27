@@ -7,9 +7,11 @@ if [ ! -f "/var/lib/influxdb/.init" ]; then
         sleep 1
     done
 
-    influx -host=localhost -port=8086 -execute="CREATE USER ${INFLUX_USER} WITH PASSWORD '${INFLUX_PASSWORD}' WITH ALL PRIVILEGES"
-    influx -host=localhost -port=8086 -execute="CREATE DATABASE ${INFLUX_DB}"    
+    influx -host=0.0.0.0 -port=8086 -execute="CREATE USER ${INFLUX_USER} WITH PASSWORD '${INFLUX_PASSWORD}' WITH ALL PRIVILEGES"
+    influx -host=0.0.0.0 -port=8086 -execute="CREATE DATABASE ${INFLUX_DB}"    
     
+    ip add
+
     touch "/var/lib/influxdb/.init"
 
     kill -s TERM %1
