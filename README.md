@@ -2,10 +2,17 @@
 
 * Start up
 ```
-# docker-compose up
+# docker-compose build
+# docker-compose up -d
+```
+
+* Stop
+```
+# docker-compose down
 ```
 
 * Sonar Client
+
 Setup:
 ```
 # pip3 install -r pip requirements.txt
@@ -15,7 +22,6 @@ Start:
 ./sonar-client.py
 ```
 
-
 * Container debug
 ```
 # docker ps 
@@ -23,5 +29,6 @@ Start:
 ```
 
 Reference:
-https://github.com/BushnevYuri/DockerGrafanaInfluxKit
-https://github.com/multiservicio/sonarqube-exporter
+
+- https://github.com/BushnevYuri/DockerGrafanaInfluxKit
+- https://github.com/multiservicio/sonarqube-exporter
