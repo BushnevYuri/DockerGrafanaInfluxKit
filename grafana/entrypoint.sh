@@ -9,7 +9,8 @@ post() {
 }
 
 if [ ! -f "/var/lib/grafana/.init" ]; then
-    exec /run.sh $@ &
+    ./run.sh $@ &
+    runpid=$!
 
     until curl -s "$url/api/datasources" 2> /dev/null; do
         sleep 1
@@ -21,7 +22,8 @@ if [ ! -f "/var/lib/grafana/.init" ]; then
 
     touch "/var/lib/grafana/.init"
 
-    kill $(pgrep grafana)
+    kill $runpid &
+    wait
 fi
 
 exec /run.sh $@
