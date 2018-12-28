@@ -72,6 +72,10 @@ class Project:
     def _prepare_metrics(self):
         json_to_export = []
         for metric in self.metrics:
+            try:
+                metric['value'] = float(metric['value'] if ('value' in metric) else 0)
+            except ValueError:
+                metric['value'] = 0
             one_metric = {
                 "measurement": metric['metric'],
                 "tags": {
