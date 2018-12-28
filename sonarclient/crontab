@@ -1,0 +1,1 @@
+*/15 * * * * /usr/src/app/sonar-client.py >> /dev/stdout 2>&1
