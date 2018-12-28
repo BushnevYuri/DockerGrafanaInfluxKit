@@ -22,7 +22,15 @@ services:
     environment:
       - HTTP_PROXY=172.25.1.1:3128
       - NO_PROXY=influxdb
-
+  sonar:
+    build: sonarclient
+    env_file: configuration.env
+    links:
+      - influxdb
+    environment:
+      - HTTP_PROXY=172.25.1.1:3128
+      - NO_PROXY=influxdb
+  
 volumes:
   grafana_data: {}
   influxdb_data: {}
