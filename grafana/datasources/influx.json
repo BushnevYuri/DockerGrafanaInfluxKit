@@ -1,7 +1,7 @@
 {
   "name": "InfluxDB",
   "type": "influxdb",
-  "url": "http://influxdb:8086",
+  "url": "http://$INFLUX_URL:$INFLUX_PORT",
   "access": "proxy",
   "user": "$INFLUX_USER",
   "password": "$INFLUX_PASSWORD",

@@ -13,7 +13,7 @@ INFLUX_URL = os.environ['INFLUX_URL']
 INFLUX_USER = os.environ['INFLUX_USER']
 INFLUX_PASSWORD = os.environ['INFLUX_PASSWORD']
 INFLUX_DB = os.environ['INFLUX_DB']
-
+INFLUX_PORT = os.environ['INFLUX_PORT']
 
 class SonarApiClient:
 
@@ -62,7 +62,7 @@ class Project:
     def export_metrics(self):
         influx_client = InfluxDBClient(
             host=INFLUX_URL,
-            port=8086,
+            port=INFLUX_PORT,
             username=INFLUX_USER,
             password=INFLUX_PASSWORD,
             database=INFLUX_DB
