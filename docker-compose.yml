@@ -15,11 +15,15 @@ services:
       - influxdb
     ports:
       - '3000:3000'
+    depends_on:
+      - influxdb
     volumes:
       - grafana_data:/var/lib/grafana
   sonar:
     build: sonarclient
     env_file: configuration.env
+    depends_on:
+      - influxdb
     links:
       - influxdb
   
