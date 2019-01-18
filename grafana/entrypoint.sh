@@ -9,7 +9,7 @@ post() {
 }
 
 if [ ! -f "/var/lib/grafana/.init" ]; then
-    ./run.sh $@ &
+    exec /run.sh $@ &
     runpid=$!
 
     until curl -s "$url/api/datasources" 2> /dev/null; do
