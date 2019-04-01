@@ -5,6 +5,8 @@ RUN apt-get update && apt-get install -y curl gettext-base && rm -rf /var/lib/ap
 
 WORKDIR /etc/grafana
 COPY datasources ./datasources
+COPY dashboard/dashboards.yaml /etc/grafana/provisioning/dashboards
+COPY dashboard/gatling-dashboard.json /etc/grafana/provisioning/dashboards
 
 WORKDIR /app
 COPY entrypoint.sh ./
